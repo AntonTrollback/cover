@@ -9,7 +9,7 @@ $(window).resize(function() {
   $element.cover('set');
 });
 ```
-Cover also needs some styles added to your stylesheet:
+Cover also needs some styles to be added to your stylesheet:
 ```css
 .cover {
   display: block;
