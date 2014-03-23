@@ -2,6 +2,9 @@
   "name": "cover",
   "version": "1.0.0",
   "main": "jquery.cover.js",
+  "ignore": [
+    "demo"
+  ],
   "keywords": [
     "cover",
     "background",
