@@ -11,16 +11,17 @@
       body {
         height: 100%;
         background: black;
+        padding: 0;
+        margin: 0;
       }
 
       a {
         position: absolute;
-        bottom: 10%;
         left: 0;
+        bottom: 10%;
         width: 100%;
         color: white;
         text-transform: uppercase;
-        font-size: 16px;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         letter-spacing: 1px;
         text-align: center;
@@ -61,7 +62,6 @@
   </head>
   <body>
 
-    <div style="height: 100%;">
     <video class="cover"
            style="background-image: url(demo.jpg)"
            poster="demo.jpg"
@@ -72,16 +72,14 @@
       <source src="demo.webm" type="video/webm">
       <source src="demo.mp4" type="video/mp4">
     </video>
-    </div>
 
     <a href="http://trollback.com/">Video copyright Trollbäck+Company</a>
 
     <script>
       $(function() {
-
         var $element = $('.cover');
 
-        $element.cover(1080 / 1920);
+        $element.cover();
 
         $(window).resize(function() {
           $element.cover('set');
