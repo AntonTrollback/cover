@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Cover demo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../jquery.cover.min.js"></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        background: black;
+      }
+
+      a {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        width: 100%;
+        color: white;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      video {
+        pointer-events: none;
+        background-position: center;
+        background-size: cover;
+      }
+
+      /**
+       * Plugin dependent CSS
+       */
+
+      .cover {
+        display: block;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: 100%;
+
+        /* Center it */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+
+      .cover.fill-width {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div style="height: 100%;">
+    <video class="cover"
+           style="background-image: url(demo.jpg)"
+           poster="demo.jpg"
+           preload
+           autoplay
+           loop
+           muted>
+      <source src="demo.webm" type="video/webm">
+      <source src="demo.mp4" type="video/mp4">
+    </video>
+    </div>
+
+    <a href="http://trollback.com/">Video copyright Trollbäck+Company</a>
+
+    <script>
+      $(function() {
+
+        var $element = $('.cover');
+
+        $element.cover(1080 / 1920);
+
+        $(window).resize(function() {
+          $element.cover('set');
+        });
+      });
+    </script>
+  </body>
+</html>

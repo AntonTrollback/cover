@@ -1,0 +1,8 @@
+{
+	"name": "cover",
+	"title": "Cover",
+	"description": "jQuery plugin for sizing any element just like `background-size: cover`",
+	"author": "Anton Trollbäck",
+	"homepage": "https://github.com/antontrollback/cover/",
+	"version": "1.0.0"
+}
