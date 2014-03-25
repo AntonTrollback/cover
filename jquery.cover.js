@@ -14,31 +14,30 @@
 
   // Plugin constructor
   function Cover (element, options) {
-    this.$el = $(element);
-    this.$container = this.$el.parent();
+    this.element = $(element);
     this.currentlyFillWidth = false;
 
-    var defaults = {
-      ratio: this.$el.height() / this.$el.width(),
-      className: 'fill-width'
-    }
-    this.options = $.extend({}, defaults, options);
+    $.extend(this, {
+      className: 'fill-width',
+      container: this.element.parent(),
+      ratio: this.element.height() / this.element.width()
+    }, options);
 
     this.set();
   }
 
   Cover.prototype = {
     set: function () {
-      var viewportRatio = this.$container.height() / this.$container.width(),
-          fillWidth = this.options.ratio >= viewportRatio;
+      var containerRatio = this.container.height() / this.container.width(),
+          fillWidth = this.ratio >= containerRatio;
 
       if (fillWidth !== this.currentlyFillWidth) {
         if (fillWidth) {
           this.currentlyFillWidth = true;
-          this.$el.addClass(this.options.className);
+          this.element.addClass(this.className);
         } else {
           this.currentlyFillWidth = false;
-          this.$el.removeClass(this.options.className);
+          this.element.removeClass(this.className);
         }
       }
     }

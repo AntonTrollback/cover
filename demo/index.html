@@ -30,18 +30,33 @@
 
       video {
         pointer-events: none;
+      }
+
+      .cover-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
         background-position: center;
         background-size: cover;
+        overflow: hidden;
       }
 
       /**
        * Plugin dependent CSS
        */
 
+      .cover-container {
+        position: relative;
+        overflow: hidden;
+      }
+
       .cover {
         display: block;
         min-width: 100%;
         min-height: 100%;
+
+        /* Defaults to fill height */
         width: auto;
         height: 100%;
 
@@ -62,16 +77,17 @@
   </head>
   <body>
 
-    <video class="cover"
-           style="background-image: url(demo.jpg)"
-           poster="demo.jpg"
-           preload
-           autoplay
-           loop
-           muted>
-      <source src="demo.webm" type="video/webm">
-      <source src="demo.mp4" type="video/mp4">
-    </video>
+    <div class="cover-container" style="background-image: url(demo.jpg)">
+      <video class="cover"
+             poster="demo.jpg"
+             preload
+             autoplay
+             loop
+             muted>
+        <source src="demo.webm" type="video/webm">
+        <source src="demo.mp4" type="video/mp4">
+      </video>
+    </div>
 
     <a href="http://trollback.com/">Video copyright Trollbäck+Company</a>
 
@@ -79,7 +95,9 @@
       $(function() {
         var $element = $('.cover');
 
-        $element.cover();
+        $element.cover({
+          ratio: 1080 / 1920
+        });
 
         $(window).resize(function() {
           $element.cover('set');
