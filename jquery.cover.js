@@ -1,18 +1,16 @@
-/*
- *  Cover - v1.0.0
- *  jQuery plugin for sizing any element just like `background-size: cover`
- *  https://github.com/antontrollback/cover
+/**
+ * Cover - v1.0.0
+ * jQuery plugin for sizing any element just like `background-size: cover`
+ * https://github.com/antontrollback/cover
  *
- *  Made by Anton Trollbäck
- *  Under MIT License
+ * Anton Trollbäck - @antontrollback
+ * MIT License
  */
 
 ;(function ($) {
 
-  // Defaults
   var pluginName = "cover";
 
-  // Plugin constructor
   function Cover (element, options) {
     this.element = $(element);
     this.currentlyFillWidth = false;
@@ -43,7 +41,6 @@
     }
   };
 
-  // Plugin wrapper preventing against multiple instantiations
   $.fn[pluginName] = function (options) {
     return this.each(function() {
       if (!$.data(this, "plugin_" + pluginName)) {
