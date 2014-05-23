@@ -1,24 +1,13 @@
-/*
- *  Cover - v1.0.0
- *  jQuery plugin for sizing any element just like `background-size: cover`
- *  https://github.com/antontrollback/cover
- *
- *  Made by Anton Trollbäck
- *  Under MIT License
- */
+/*! Cover v1.1.0 | MIT License | github.com/antontrollback/cover */
 
 ;(function ($) {
 
-  // Defaults
   var pluginName = "cover";
 
-  // Plugin constructor
   function Cover (element, options) {
     this.element = $(element);
-    this.currentlyFillWidth = false;
 
     $.extend(this, {
-      className: 'fill-width',
       container: this.element.parent(),
       ratio: this.element.height() / this.element.width()
     }, options);
@@ -28,28 +17,32 @@
 
   Cover.prototype = {
     set: function () {
-      var containerRatio = this.container.height() / this.container.width(),
-          fillWidth = this.ratio >= containerRatio;
+      var height = this.container.height();
+      var width = this.container.width();
+      var shouldFillWidth = this.ratio >= (height / width);
 
-      if (fillWidth !== this.currentlyFillWidth) {
-        if (fillWidth) {
-          this.currentlyFillWidth = true;
-          this.element.addClass(this.className);
-        } else {
-          this.currentlyFillWidth = false;
-          this.element.removeClass(this.className);
+      if (shouldFillWidth) {
+        if (!this.fillingWidth) {
+          this.element.css('width', '100%').css('height', 'auto');
+          this.fillingWidth = true;
+        }
+      } else {
+        if (this.fillingWidth) {
+          this.element.css('width', 'auto').css('height', '100%');
+          this.fillingWidth = false;
         }
       }
     }
   };
 
-  // Plugin wrapper preventing against multiple instantiations
+  // Wrapper preventing multiple instantiations
   $.fn[pluginName] = function (options) {
     return this.each(function() {
       if (!$.data(this, "plugin_" + pluginName)) {
         $.data(this, "plugin_" + pluginName, new Cover(this, options));
       }
 
+      // Allow access to 'set' method
       if (options === 'set') {
         cover = $.data(this, 'plugin_' + pluginName).set();
       }

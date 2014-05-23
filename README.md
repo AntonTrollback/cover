@@ -1,6 +1,7 @@
 # Usage
+
 ```js
-var $element = $('.cover');
+var $element = $('.something');
 
 $element.cover();
 
@@ -9,21 +10,20 @@ $(window).resize(function() {
   $element.cover('set');
 });
 ```
+
 Cover also needs some styles to be added to your stylesheet:
+
 ```css
-.cover-container {
+.something-container {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
-.cover {
-  display: block;
+.something {
   min-width: 100%;
   min-height: 100%;
-
-  /* Defaults to fill height */
-  width: auto;
-  height: 100%;
 
   /* Center it */
   position: absolute;
@@ -33,14 +33,8 @@ Cover also needs some styles to be added to your stylesheet:
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
-.cover.fill-width {
-  width: 100%;
-  height: auto;
-}
 ```
 
 ## Options
-- **className** String, defaults to `fill-width`
-- **container** $(element), defaults to parent
-- **ratio** Integer, defaults to element `height / width`. Specify if dimentions aren't available on load (images and videos)
+- **container** $(element), defaults to parent element
+- **ratio** Integer, defaults to element `height / width`. Specify if dimentions aren't available on load (image, video, etc.)
