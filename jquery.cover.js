@@ -24,13 +24,11 @@
       if (fillWidth && !this.fillingWidth) {
         this.fillingWidth = true;
         this.element.css('width', '100%').css('height', 'auto');
-        console.log('doit height')
       }
 
       if (!fillWidth) {
         this.fillingWidth = false;
         this.element.css('width', 'auto').css('height', '100%');
-        console.log('doit width')
       }
     }
   };
