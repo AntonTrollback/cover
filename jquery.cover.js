@@ -1,6 +1,6 @@
-/*! Cover v1.1.0 | MIT License | github.com/antontrollback/cover */
+/*! Cover v1.2.0 | MIT License | github.com/antontrollback/cover */
 
-;(function ($) {
+;(function($) {
 
   var pluginName = "cover";
 
@@ -16,27 +16,27 @@
   }
 
   Cover.prototype = {
-    set: function () {
+    set: function() {
       var height = this.container.height();
       var width = this.container.width();
-      var shouldFillWidth = this.ratio >= (height / width);
+      var fillWidth = this.ratio >= (height / width);
 
-      if (shouldFillWidth) {
-        if (!this.fillingWidth) {
-          this.element.css('width', '100%').css('height', 'auto');
-          this.fillingWidth = true;
-        }
-      } else {
-        if (this.fillingWidth) {
-          this.element.css('width', 'auto').css('height', '100%');
-          this.fillingWidth = false;
-        }
+      if (fillWidth && !this.fillingWidth) {
+        this.fillingWidth = true;
+        this.element.css('width', '100%').css('height', 'auto');
+        console.log('doit height')
+      }
+
+      if (!fillWidth) {
+        this.fillingWidth = false;
+        this.element.css('width', 'auto').css('height', '100%');
+        console.log('doit width')
       }
     }
   };
 
   // Wrapper preventing multiple instantiations
-  $.fn[pluginName] = function (options) {
+  $.fn[pluginName] = function(options) {
     return this.each(function() {
       if (!$.data(this, "plugin_" + pluginName)) {
         $.data(this, "plugin_" + pluginName, new Cover(this, options));
