@@ -17,15 +17,13 @@ Cover also needs some styles to be added to your stylesheet:
 .something-container {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
 }
 
 .something {
   min-width: 100%;
   min-height: 100%;
 
-  /* Center it */
+  /* Center it like `background-position: center` */
   position: absolute;
   left: 50%;
   top: 50%;
