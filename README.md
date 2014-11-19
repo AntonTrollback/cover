@@ -23,7 +23,7 @@ Cover also needs some styles to be added to your stylesheet:
   min-width: 100%;
   min-height: 100%;
 
-  /* Center it like `background-position: center` */
+  /* Center it, like `background-position: center` */
   position: absolute;
   left: 50%;
   top: 50%;
@@ -40,7 +40,8 @@ $('.something').cover({
   // Defaults to element parent
   container: $('body'), 
   
-  // Element height/width. Specify if dimentions aren't available on load (image, video, etc.)
+  // Element height / width
+  // Specify if dimentions aren't available on load (image, video, etc.)
   ratio: 1080 / 1920  
 });
 ```
