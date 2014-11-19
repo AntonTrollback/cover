@@ -34,12 +34,13 @@ Cover also needs some styles to be added to your stylesheet:
 ```
 
 ## Options
-- **container** $(element), defaults to parent element
-- **ratio** Integer, defaults to element `height / width`. Specify if dimentions aren't available on load (image, video, etc.)
 
 ```js
 $('.something').cover({
-  container: $('body'),
-  ratio: 1080 / 1920
+  // Defaults to element parent
+  container: $('body'), 
+  
+  // Element height/width. Specify if dimentions aren't available on load (image, video, etc.)
+  ratio: 1080 / 1920  
 });
 ```
