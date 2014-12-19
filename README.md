@@ -1,3 +1,7 @@
+# No longer recommended
+
+Consider using [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) with a polyfill such as [anselmh/object-fit](https://github.com/anselmh/object-fit)
+
 # Usage
 
 ```js
